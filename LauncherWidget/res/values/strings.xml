@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">Launcher Widget</string>
+    <string name="start_listening">Start Listening</string>
+    <string name="no_match_found">No match found</string>
+
+</resources>

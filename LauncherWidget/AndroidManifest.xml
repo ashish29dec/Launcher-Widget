@@ -1,0 +1,40 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ashish.widget.launcher"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="19" />
+
+	<uses-permission android:name="android.permission.RECORD_AUDIO"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <receiver android:name=".LauncherWidgetProvider">
+            <meta-data android:name="android.appwidget.provider"
+                    android:resource="@xml/widget_provider" />
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receiver.RecordEventReceiver" android:enabled="false">
+            <intent-filter>
+                <action android:name="com.ashish.widget.launcher.intent.ACTION_START_RECORDING" />
+            </intent-filter>
+        </receiver>
+        
+        <activity android:name="com.ashish.widget.launcher.ResultsActivity"
+            android:theme="@android:style/Theme.Dialog"
+            android:exported="false">
+            
+        </activity>		
+	</application>
+
+</manifest>
